@@ -28,7 +28,7 @@ mount /dev/sda3 /mnt
 # Woo, almost there. Now we just make sure the mirror list is updated by running:
 reflector
 # Now we install essential shit
-pacstrap /mnt base linux linux-firmware networkmanager vim alacritty
+pacstrap /mnt base linux linux-firmware networkmanager vim alacritty git base-devel
 # Notice how it'll detect where to install through the mount point /mnt. I also installed networkmanager and vim for internet and text editing. 
 # Now we write down the partition table of fstab for linux to read
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -81,3 +81,9 @@ visudo /etc/sudoers
 # Edit /etc/pacman.conf to enable parralel downloads (I'd say like 6)
 # install "tldr" so that you can go "tldr zip" or some shit when you don't know how to use a command/program.
 
+
+# Install yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+cd ..
