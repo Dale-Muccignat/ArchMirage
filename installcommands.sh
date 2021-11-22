@@ -35,12 +35,12 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # And now we can chroot into linux!
 arch-chroot /mnt
 # Set the timezone
-ln -sf /usr/share/zoneinfo/Australia/Melboure /etc/localtime
+ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
 # Run hwclock to make sure local/system time and good
 hwclock --systohc
 # Now the fun edit file part. I use vim here but maybe use a different text editor haha
 # Edit /etc/local.gen and uncomment en_US.UTF-8 UTF-8
-vim /etc/local.gen
+vim /etc/locale.gen
 # Use j/k to go up down until you find the line. Move curse to the # on that line and hit "x" to delete it. Type ":wq" to save and quit.
 # Generate the locales (idek what this is doing but it's some weird filesystem thing)
 locale-gen
