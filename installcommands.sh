@@ -9,7 +9,7 @@ station device connect SSID
 # Update system clock:
 timedatectl set-ntp true
 # Time to partition! I know the installer recommends fdisk but I used cfdisk to create my partitions. It's graphical:
-cfdisk
+sfdisk /dev/sda < sda.sfdisk
 # Go through and delete any partitions there are. There should just be free space. We are going to set up 3 partitions. You hit new and select the size, then you have to change the type.
  # 1. 1G efi filesystem: This is where the bootloader will mount to.
  # 2. 8G swarp partition: This is optional but could help with ram or something like that
