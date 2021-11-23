@@ -1,11 +1,4 @@
 #!/bin/bash
-# I had to install via wireless so first using iwctl to connect:
-iwctl
-# Get name of the adaptor:
-device list
-# In the following, replace "device" with the name of it. For me it was wlan0. SSID as in the name of the network.
-station device connect SSID
-# Ctrl+D to exit iwctl.
 # Update system clock:
 timedatectl set-ntp true
 # Time to partition! I know the installer recommends fdisk but I used cfdisk to create my partitions. It's graphical:
