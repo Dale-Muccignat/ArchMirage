@@ -28,13 +28,9 @@ Type in your password to connect to the network. For more information see [iwd](
 
 ## Download and run the installer script
 
-First, update the package database of ArchLinux:
+First, update the package database of ArchLinux and install `git`:
 ```
-pacman -Sy
-```
-Then install git:
-```
-pacman -S git
+pacman -Sy git
 ```
 Then clone this repository:
 ```
