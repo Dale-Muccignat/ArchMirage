@@ -21,7 +21,7 @@ mount /dev/sda3 /mnt
 # Woo, almost there. Now we just make sure the mirror list is updated by running:
 reflector
 # Now we install essential shit
-pacstrap /mnt base linux linux-firmware networkmanager vim alacritty git base-devel
+pacstrap /mnt base linux linux-firmware
 # Notice how it'll detect where to install through the mount point /mnt. I also installed networkmanager and vim for internet and text editing. 
 # Now we write down the partition table of fstab for linux to read
 genfstab -U /mnt >> /mnt/etc/fstab
