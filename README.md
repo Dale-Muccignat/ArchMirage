@@ -5,8 +5,11 @@ Yet another installer script for archlinux customized to the Mirage ways.
 # Install Instructions
 
 ## Prepare install medium
+
 Download and prepare an ArchLinux installation disk (typically a USB) according to the the [ArchLinux Installation Guide](https://wiki.archlinux.org/title/installation_guide)
+
 ## Connect to the internet
+
 Connect to Ethernet/Wifi. Ethernet should by default be connected. For wifi use the `iwctl` package.
 Find your wiki adaptor name:
 ```
@@ -21,9 +24,10 @@ Connect to your network by it's name (SSID):
 ```
 iwctl station device connect SSID
 ```
-Type in your password to connect to the network. For more information see [iwd](https://wiki.archlinux.org/title/Iwd)
+Type in your password to connect to the network. For more information see [iwd](https://wiki.archlinux.org/title/Iwd).
 
 ## Download and run the installer script
+
 First, update the package database of ArchLinux:
 ```
 pacman -Sy
