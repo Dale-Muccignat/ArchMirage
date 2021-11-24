@@ -16,8 +16,6 @@ locale-gen
 #vim /etc/locale.conf
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 # hit "i" to enter edit mode and type "LANG=en_US.UTF-8". hit "esc" to exit edit mode and then type ":wq" to save and quit.
-# Make a root password
-#passwd
 # Time for bootloaded. I got this from the GRUB page of archwiki. Install grub and efibootmgr:
 pacman -S --noconfirm grub efibootmgr gdm cinnamon sudo networkmanager vim alacritty git base-devel
 # then install grub to a mount point:
@@ -36,9 +34,14 @@ grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable gdm.service
 # Might aswell enable networkmanager here aswell
 systemctl enable NetworkManager.service
+# Make a root password
+echo Password for root
+passwd
 # Then just add a user:
-useradd -m dale
-#passwd dale
+read -p "Name for user profile: " username
+echo Password for user $username
+useradd -m $username
+passwd $username
 # And just need to set up the "sudo" shit
 # pacman -S sudo
 # then edit /etc/sudoers and add "dale ALL=(ALL) ALL" under the user alias specification section
