@@ -38,7 +38,7 @@ systemctl enable NetworkManager.service
 echo Password for root
 passwd
 # Then just add a user:
-read -p "Name for user profile" username
+read -p "Name for user profile: " username
 echo Password for user $username
 useradd -m $username
 passwd $username
