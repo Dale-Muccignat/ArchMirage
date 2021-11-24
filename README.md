@@ -6,7 +6,7 @@ Yet another installer script for archlinux customized to the Mirage ways.
 
 ## Prepare install medium
 
-Download and prepare an ArchLinux installation disk (typically a USB) according to the the [ArchLinux Installation Guide](https://wiki.archlinux.org/title/installation_guide)
+Download and prepare an ArchLinux installation disk (typically a USB) according to the the [ArchLinux Installation Guide](https://wiki.archlinux.org/title/installation_guide).
 
 ## Connect to the internet
 
