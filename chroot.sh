@@ -17,7 +17,7 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 # Make a root password
 #passwd
 # Time for bootloaded. I got this from the GRUB page of archwiki. Install grub and efibootmgr:
-pacman -S grub efibootmgr
+pacman -S --noconfirm grub efibootmgr gdm cinnamon sudo
 # then install grub to a mount point:
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
@@ -28,7 +28,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # At this point you can restart and log into root just fine but lets set up our display manager and desktop environment.
 # So display manager handles the log in and handles the overal "display" and the you log into a desktop envionment from the display manager.
 # There's a few display managers to choose from but I'm going to use GDM - IDK if it's the best choice tbh but who cares.
-pacman -S gdm cinnamon
+# pacman -S 
 # Just select the default option.
 # Now we need to enable gdm so that it starts on startup through
 systemctl enable gdm.service
@@ -38,7 +38,7 @@ systemctl enable NetworkManager.service
 useradd -m dale
 #passwd dale
 # And just need to set up the "sudo" shit
-pacman -S sudo
+# pacman -S sudo
 # then edit /etc/sudoers and add "dale ALL=(ALL) ALL" under the user alias specification section
 #visudo /etc/sudoers
 echo "dale ALL=(ALL) ALL" >> /etc/sudoers
