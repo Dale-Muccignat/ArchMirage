@@ -10,7 +10,7 @@ sfdisk /dev/sda < sda.sfdisk
 # Once that's all done select write and then quit. You can check it with "fdisk -l".
 # Now we format each partition. I'll assume you did the above in order so I'll use the /dev/sdaX accordingly. But just check the fdisk is yours is different.
 # Format the linux filesystem:
-mkfs.ext4 /dev/sda3
+mkfs.ext4 -F /dev/sda3
 # Format the swap:
 mkswap /dev/sda2
 # Format the EFI filesystem
