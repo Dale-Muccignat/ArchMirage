@@ -42,7 +42,7 @@ cd ArchMirage
 ```
 Finally, run the installer script provided:
 ```
-bash installcommands.sh
+bash install.sh
 ```
 
 # Goals
