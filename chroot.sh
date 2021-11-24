@@ -38,9 +38,10 @@ systemctl enable NetworkManager.service
 echo Password for root
 passwd
 # Then just add a user:
-echo Password for user dale
-useradd -m dale
-passwd dale
+read -p "Name for user profile" username
+echo Password for user $username
+useradd -m $username
+passwd $username
 # And just need to set up the "sudo" shit
 # pacman -S sudo
 # then edit /etc/sudoers and add "dale ALL=(ALL) ALL" under the user alias specification section
