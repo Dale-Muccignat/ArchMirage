@@ -10,8 +10,8 @@ Download and prepare an ArchLinux installation disk (typically a USB) according 
 
 ## Connect to the internet
 
-Connect to Ethernet/Wifi. Ethernet should by default be connected. For wifi use the `iwctl` package.
-Find your wiki adaptor name:
+Connect to Ethernet/Wifi. Ethernet should by default be connected. For Wifi use the `iwctl` package.
+Find your Wifi adaptor name:
 ```
 iwctl station list
 ```
@@ -40,9 +40,13 @@ Then clone this repository:
 ```
 git clone https://github.com/Dale-Muccignat/ArchLinux.git
 ```
+Change directory to `ArchMirage`:
+```
+cd ArchMirage
+```
 Finally, run the installer script provided:
 ```
-bash ArchLinux/installcommands.sh
+bash installcommands.sh
 ```
 
 # Goals
