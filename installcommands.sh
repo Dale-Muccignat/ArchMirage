@@ -29,4 +29,4 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cp chroot.sh /mnt/chroot.sh
 
 # And now we can chroot into linux!
-arch-chroot /mnt ./chroot.sh
+arch-chroot /mnt /bin/bash chroot.sh
