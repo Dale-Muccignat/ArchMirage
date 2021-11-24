@@ -7,6 +7,8 @@ hwclock --systohc
 # Edit /etc/local.gen and uncomment en_US.UTF-8 UTF-8
 #vim /etc/locale.gen
 sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+# Add parallelDownloads
+sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 8/g' /etc/locale.gen
 # Use j/k to go up down until you find the line. Move curse to the # on that line and hit "x" to delete it. Type ":wq" to save and quit.
 # Generate the locales (idek what this is doing but it's some weird filesystem thing)
 locale-gen
