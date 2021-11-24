@@ -10,7 +10,7 @@ sfdisk /dev/sda < sda.sfdisk
 # Once that's all done select write and then quit. You can check it with "fdisk -l".
 # Now we format each partition. I'll assume you did the above in order so I'll use the /dev/sdaX accordingly. But just check the fdisk is yours is different.
 # Format the linux filesystem:
-mkfs.ext4 /dev/sda3
+mkfs.ext4 -F /dev/sda3
 # Format the swap:
 mkswap /dev/sda2
 # Format the EFI filesystem
@@ -21,7 +21,7 @@ mount /dev/sda3 /mnt
 # Woo, almost there. Now we just make sure the mirror list is updated by running:
 reflector
 # Now we install essential shit
-pacstrap /mnt base linux linux-firmware networkmanager vim alacritty git base-devel
+pacstrap /mnt base linux linux-firmware
 # Notice how it'll detect where to install through the mount point /mnt. I also installed networkmanager and vim for internet and text editing. 
 # Now we write down the partition table of fstab for linux to read
 genfstab -U /mnt >> /mnt/etc/fstab
