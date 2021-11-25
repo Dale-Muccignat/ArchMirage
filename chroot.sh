@@ -17,7 +17,7 @@ locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 # hit "i" to enter edit mode and type "LANG=en_US.UTF-8". hit "esc" to exit edit mode and then type ":wq" to save and quit.
 # Time for bootloaded. I got this from the GRUB page of archwiki. Install grub and efibootmgr:
-pacman -S --noconfirm grub efibootmgr gdm cinnamon sudo networkmanager vim alacritty git base-devel
+pacman -S --noconfirm grub efibootmgr gdm cinnamon i3-gaps i3status i3blocks sudo networkmanager vim alacritty git base-devel
 # then install grub to a mount point:
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
