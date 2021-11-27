@@ -42,12 +42,11 @@ read -p "Name for user profile: " username
 useradd -m $username
 passwd $username
 
-echo Password for user $username
-echo "username=$username" >> ${HOME}/ArchMirage/install.conf
 cp -R ArchMirage /root
 cp -R /root/ArchMirage /home/$username
 chown -R $username: /home/$username/ArchMirage
 chmod -R u=rwx /home/$username/ArchMirage
+echo "username=$username" >> ${HOME}/ArchMirage/install.conf
 # And just need to set up the "sudo" shit
 # pacman -S sudo
 # then edit /etc/sudoers and add "dale ALL=(ALL) ALL" under the user alias specification section
