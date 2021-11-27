@@ -26,7 +26,9 @@ pacstrap /mnt base linux linux-firmware
 # Now we write down the partition table of fstab for linux to read
 genfstab -U /mnt >> /mnt/etc/fstab
 
-cp chroot.sh /mnt/chroot.sh
+cp -R ${SCRIPT_DIR} /mnt/ArchMirage
 
 # And now we can chroot into linux!
 arch-chroot /mnt /bin/bash chroot.sh
+source /mnt/root/ArchMirage/install.conf
+arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/ArchMirage/user.sh
