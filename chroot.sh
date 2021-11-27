@@ -44,7 +44,7 @@ passwd $username
 
 echo Password for user $username
 echo "username=$username" >> ${HOME}/ArchMirage/install.conf
-cp -R /root/ArchMirage /home/$dale/
+cp -R /root/ArchMirage /home/$username
 chown -R $username: /home/$username/ArchMirage
 # And just need to set up the "sudo" shit
 # pacman -S sudo
