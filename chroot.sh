@@ -44,6 +44,7 @@ passwd $username
 
 echo Password for user $username
 echo "username=$username" >> ${HOME}/ArchMirage/install.conf
+cp -R ArchMirage /root
 cp -R /root/ArchMirage /home/$username
 chown -R $username: /home/$username/ArchMirage
 chmod -R u=rwx /home/$username/ArchMirage
