@@ -34,7 +34,7 @@ pacman -Sy git
 ```
 Then clone this repository:
 ```
-git clone https://github.com/Dale-Muccignat/ArchLinux.git
+git clone https://github.com/Dale-Muccignat/ArchMirage.git
 ```
 Change directory to `ArchMirage`:
 ```
