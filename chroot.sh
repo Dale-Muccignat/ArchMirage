@@ -17,7 +17,10 @@ locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 # hit "i" to enter edit mode and type "LANG=en_US.UTF-8". hit "esc" to exit edit mode and then type ":wq" to save and quit.
 # Time for bootloaded. I got this from the GRUB page of archwiki. Install grub and efibootmgr:
-pacman -S --noconfirm grub efibootmgr lightdm cinnamon i3-gaps i3status i3blocks sudo networkmanager vim alacritty git base-devel intel-ucode
+pacman -S --noconfirm grub efibootmgr lightdm lightdm-slick-greeter cinnamon sudo networkmanager vim alacritty git base-devel
+# i3-gaps i3status i3blocks
+# Set lightdm greeter to slick
+#sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 # then install grub to a mount point:
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
@@ -30,8 +33,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # There's a few display managers to choose from but I'm going to use GDM - IDK if it's the best choice tbh but who cares.
 # pacman -S 
 # Just select the default option.
-# Now we need to enable gdm so that it starts on startup through
-systemctl enable lightdm
+# Now we need to enable lightdm so that it starts on startup through
+systemctl enable lightdm.service
 # Might aswell enable networkmanager here aswell
 systemctl enable NetworkManager.service
 # Make a root password
