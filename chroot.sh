@@ -20,7 +20,7 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 pacman -S --noconfirm grub efibootmgr lightdm lightdm-slick-greeter cinnamon sudo networkmanager vim alacritty git base-devel
 # i3-gaps i3status i3blocks
 # Set lightdm greeter to slick
-#sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
+#sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/lightdm/lightdm.conf
 # then install grub to a mount point:
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
