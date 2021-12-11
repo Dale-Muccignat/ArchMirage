@@ -16,14 +16,14 @@ sfdisk "/dev/$drive" < sda.sfdisk
 # Once that's all done select write and then quit. You can check it with "fdisk -l".
 # Now we format each partition. I'll assume you did the above in order so I'll use the /dev/sdaX accordingly. But just check the fdisk is yours is different.
 # Format the linux filesystem:
-mkfs.ext4 -F "/dev/$drive3"
+mkfs.ext4 -F "/dev/${drive}3"
 # Format the swap:
-mkswap "/dev/$drive2"
+mkswap "/dev/${drive}2"
 # Format the EFI filesystem
-mkfs.fat -F 32 "/dev/$drive1"
+mkfs.fat -F 32 "/dev/${drive}1"
 # Now we want to mount the filesystem (so linux knows where to install)
 # Mount the filesystem:
-mount "/dev/$drive3" /mnt
+mount "/dev/${drive}3" /mnt
 # Woo, almost there. Now we just make sure the mirror list is updated by running:
 reflector
 # Now we install essential shit
