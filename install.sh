@@ -8,7 +8,7 @@ lsblk --output NAME,TYPE,SIZE,MODEL,SERIAL | grep 'disk'
 echo $x
 y=$(lsblk --output NAME,TYPE,SIZE,MODEL,SERIAL | grep 'disk' | cut -d" " -f1 | tr '\n' '/')
 read -p "Select one of [${y%?}]: " drive
-sfdisk "/dev/$drive" < sda.sfdisk
+sfdisk "/dev/${drive}" < sda.sfdisk
 # Go through and delete any partitions there are. There should just be free space. We are going to set up 3 partitions. You hit new and select the size, then you have to change the type.
  # 1. 1G efi filesystem: This is where the bootloader will mount to.
  # 2. 8G swarp partition: This is optional but could help with ram or something like that
