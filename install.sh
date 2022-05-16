@@ -24,6 +24,9 @@ mkfs.fat -F 32 "/dev/${drive}1"
 # Now we want to mount the filesystem (so linux knows where to install)
 # Mount the filesystem:
 mount "/dev/${drive}3" /mnt
+# Mount the boot
+mkdir /mnt/boot
+mount "/dev/${drive}1" /mnt/boot
 # Woo, almost there. Now we just make sure the mirror list is updated by running:
 reflector
 # Now we install essential shit
