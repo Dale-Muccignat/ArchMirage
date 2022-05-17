@@ -1,5 +1,5 @@
 #!/bin/bash
-source /mnt/ArchMirage/install.conf
+source ${HOME}/ArchMirage/install.conf
 # Set the timezone
 ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
 # Run hwclock to make sure local/system time and good
@@ -48,7 +48,7 @@ cp -R ArchMirage /root
 cp -R /root/ArchMirage /home/$username
 chown -R $username: /home/$username/ArchMirage
 chmod -R u=rwx /home/$username/ArchMirage
-echo "username=$username" >> /mnt/ArchMirage/install.conf
+echo "username=$username" >> ${HOME}/ArchMirage/install.conf
 # And just need to set up the "sudo" shit
 # pacman -S sudo
 # then edit /etc/sudoers and add "dale ALL=(ALL) ALL" under the user alias specification section
