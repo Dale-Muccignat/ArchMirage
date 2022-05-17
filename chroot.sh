@@ -1,4 +1,5 @@
 #!/bin/bash
+source /mnt/ArchMirage/install.conf
 # Set the timezone
 ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
 # Run hwclock to make sure local/system time and good
