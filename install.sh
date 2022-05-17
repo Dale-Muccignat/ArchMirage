@@ -34,9 +34,9 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 cp -R ../ArchMirage /mnt
 
-echo "drive=$drive" >> ${HOME}/ArchMirage/install.conf
+echo "drive=$drive" >> /mnt/root/ArchMirage/install.conf
 
 # And now we can chroot into linux!
 arch-chroot /mnt /bin/bash ArchMirage/chroot.sh
-source ${HOME}/ArchMirage/install.conf
+source /mnt/root/ArchMirage/install.conf
 arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/ArchMirage/user.sh
