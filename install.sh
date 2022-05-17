@@ -38,5 +38,5 @@ echo "drive=$drive" >> ${HOME}/ArchMirage/install.conf
 
 # And now we can chroot into linux!
 arch-chroot /mnt /bin/bash ArchMirage/chroot.sh
-source /mnt/ArchMirage/install.conf
+source ${HOME}/ArchMirage/install.conf
 arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/ArchMirage/user.sh
