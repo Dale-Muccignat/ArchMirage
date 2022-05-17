@@ -24,9 +24,6 @@ mkfs.fat -F 32 "/dev/${drive}1"
 # Now we want to mount the filesystem (so linux knows where to install)
 # Mount the filesystem:
 mount "/dev/${drive}3" /mnt
-# Mount the boot
-mkdir /mnt/boot
-mount "/dev/${drive}1" /mnt/boot
 # Woo, almost there. Now we just make sure the mirror list is updated by running:
 reflector
 # Now we install essential shit
@@ -37,7 +34,9 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 cp -R ../ArchMirage /mnt
 
+echo "drive=$drive" >> /mnt/ArchMirage/install.conf
+
 # And now we can chroot into linux!
 arch-chroot /mnt /bin/bash ArchMirage/chroot.sh
-source /mnt/root/ArchMirage/install.conf
+source /mnt/ArchMirage/install.conf
 arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/ArchMirage/user.sh
