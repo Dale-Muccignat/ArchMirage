@@ -51,7 +51,7 @@ echo "username=$username" >> ${HOME}/ArchMirage/install.conf
 # pacman -S sudo
 # then edit /etc/sudoers and add "dale ALL=(ALL) ALL" under the user alias specification section
 #visudo /etc/sudoers
-echo "$username ALL=(ALL) ALL" >> /etc/sudoers
+echo "$username ALL=(ALL:ALL) ALL" >> /etc/sudoers
 # use j/k to move to under the user alias section. Hit "i" to enter edit mode. Type out the line then hit "esc" to exit edit mode. Then type ":wq" to write and quit.
 # Now we can ctrl+d to exit chroot and then reboot and remove the usb. 
 # SAVE THE USB, you can use it to save your computer if it dies. You can chroot into 
