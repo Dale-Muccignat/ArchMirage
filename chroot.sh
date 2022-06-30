@@ -1,5 +1,6 @@
 #!/bin/bash
 # Set the timezone
+source /ArchMirage/install.conf
 ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
 # Run hwclock to make sure local/system time and good
 hwclock --systohc
@@ -20,7 +21,7 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 pacman -S --noconfirm grub efibootmgr gdm cinnamon i3-gaps i3status i3blocks sudo networkmanager vim alacritty git base-devel intel-ucode
 # then install grub to a mount point:
 mkdir /mnt/boot
-mount /dev/sda1 /mnt/boot
+mount "/dev/${drive}1" /mnt/boot
 grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bootloader-id=GRUB
 # then generate the GRUB config file
 grub-mkconfig -o /boot/grub/grub.cfg
