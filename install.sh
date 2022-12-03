@@ -1,6 +1,6 @@
 #!/bin/bash
 # Update keyring, don't know why this is needed now
-pacman -Sy archlinux-keyring
+pacman -Sy --noconfirm archlinux-keyring
 # Update system clock:
 timedatectl set-ntp true
 # Time to partition! I know the installer recommends fdisk but I used cfdisk to create my partitions. It's graphical:
