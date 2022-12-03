@@ -14,19 +14,37 @@ sfdisk "/dev/${drive}" < sda.sfdisk
  # 2. 8G swarp partition: This is optional but could help with ram or something like that
  # 3. Linux filesystem: Rest of storage. this is where we will mount linux
 
-# Format the linux filesystem:
-mkfs.ext4 -F "/dev/${drive}3"
-# Format the swap:
-mkswap "/dev/${drive}2"
-# Format the EFI filesystem
-mkfs.fat -F 32 "/dev/${drive}1"
+ # TODO: add nvme support
+if [[ ${drive} = *"sd"* ]]
+then
+    ## If sd
+    # Format the linux filesystem:
+    mkfs.ext4 -F "/dev/${drive}3"
+    # Format the swap:
+    mkswap "/dev/${drive}2"
+    # Format the EFI filesystem
+    mkfs.fat -F 32 "/dev/${drive}1"
 
-# Now we want to mount the filesystem (so linux knows where to install)
-# Mount the filesystem:
-mount "/dev/${drive}3" /mnt
+    # Now we want to mount the filesystem (so linux knows where to install)
+    # Mount the filesystem:
+    mount "/dev/${drive}3" /mnt
+elif [[ ${drive} = *"nv"* ]]
+then
+    ## if nvm
+    # Format the linux filesystem:
+    mkfs.ext4 -F "/dev/${drive}p3"
+    # Format the swap:
+    mkswap "/dev/${drive}p2"
+    # Format the EFI filesystem
+    mkfs.fat -F 32 "/dev/${drive}p1"
+
+    # Now we want to mount the filesystem (so linux knows where to install)
+    # Mount the filesystem:
+    mount "/dev/${drive}p3" /mnt
+fi
 
 # Woo, almost there. Now we just make sure the mirror list is updated by running:
-reflector
+#reflector
 # Now we install essentials 
 pacstrap /mnt base linux linux-firmware
 # Now we write down the partition table of fstab for linux to read

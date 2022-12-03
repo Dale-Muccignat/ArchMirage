@@ -15,17 +15,24 @@ locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 
 # Time for bootloader. I got this from the GRUB page of archwiki. Install grub and efibootmgr:
-pacman -S --noconfirm grub efibootmgr gdm cinnamon i3-gaps i3status i3blocks sudo networkmanager vim alacritty git base-devel intel-ucode
+pacman -S --noconfirm grub efibootmgr sddm cinnamon i3-wm i3status i3blocks sudo networkmanager vim alacritty git base-devel intel-ucode
 
 # then install grub to a mount point:
 mkdir /mnt/boot
-mount "/dev/${drive}1" /mnt/boot
+if [[ ${drive} = *"sd"* ]]
+then
+    mount "/dev/${drive}1" /mnt/boot
+elif [[ ${drive} = *"nv"* ]]
+then
+    mount "/dev/${drive}p1" /mnt/boot
+fi
+
 grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bootloader-id=GRUB
 # then generate the GRUB config file
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Now we need to enable gdm so that it starts on startup through
-systemctl enable gdm.service
+systemctl enable sddm.service
 # Might aswell enable networkmanager here aswell
 systemctl enable NetworkManager.service
 
