@@ -19,10 +19,10 @@ pacman -S --noconfirm grub efibootmgr sddm cinnamon i3-wm i3status i3blocks sudo
 
 # then install grub to a mount point:
 mkdir /mnt/boot
-if [[ ${drive} = *"sd"* ]]
+if [[ ${drive} = *"sd"* ]] || [[ ${drive} = *"vd"* ]]
 then
     mount "/dev/${drive}1" /mnt/boot
-elif [[ ${drive} = *"nv"* ]]
+elif [[ ${drive} = *"nv"* ]] || [[ ${drive} = *"mmc"* ]] || [[ ${drive} = *"loop"* ]]
 then
     mount "/dev/${drive}p1" /mnt/boot
 fi
