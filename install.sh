@@ -16,8 +16,10 @@ sfdisk "/dev/${drive}" < sda.sfdisk
  # 2. 8G swarp partition: This is optional but could help with ram or something like that
  # 3. Linux filesystem: Rest of storage. this is where we will mount linux
 
- # TODO: add nvme support
-if [[ ${drive} = *"sd"* ]]
+# Define partition names properly
+# sd/vd are named with just the number
+# nvmeXnX, mmcbXkX and loopX are named with pX
+if [[ ${drive} = *"sd"* ]] || [[ ${drive} = *"vd"* ]]
 then
     ## If sd
     # Format the linux filesystem:
@@ -30,9 +32,9 @@ then
     # Now we want to mount the filesystem (so linux knows where to install)
     # Mount the filesystem:
     mount "/dev/${drive}3" /mnt
-elif [[ ${drive} = *"nv"* ]]
+elif [[ ${drive} = *"nv"* ]] || [[ ${drive} = *"mmc"* ]] || [[ ${drive} = *"loop"* ]]
 then
-    ## if nvm
+    ## if nvm, mmc or loop
     # Format the linux filesystem:
     mkfs.ext4 -F "/dev/${drive}p3"
     # Format the swap:
