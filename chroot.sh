@@ -15,7 +15,7 @@ locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 
 # Time for bootloader. I got this from the GRUB page of archwiki. Install grub and efibootmgr:
-pacman -S --noconfirm grub efibootmgr sddm cinnamon i3-wm i3status i3blocks sudo networkmanager vim alacritty git base-devel intel-ucode
+pacman -S --noconfirm grub efibootmgr lightdm cinnamon sudo networkmanager vim alacritty git base-devel intel-ucode
 
 # then install grub to a mount point:
 mkdir /mnt/boot
