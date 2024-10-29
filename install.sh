@@ -1,6 +1,7 @@
 #!/bin/bash
 function choose_from_menu() {
-  local prompt="$1" pacnames="$2" outvar="$3"
+  local prompt="$1" outvar="$2" pacnames="$3"
+  shift
   shift
   shift
   shift
