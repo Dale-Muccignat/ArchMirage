@@ -4,7 +4,6 @@ function choose_from_menu() {
   shift
   shift
   shift
-  shift
   local options=("$@") cur=0 count=${#options[@]} index=0
   local esc=$(echo -en "\e") # cache ESC as test doesn't allow esc codes
   printf "$prompt\n"
