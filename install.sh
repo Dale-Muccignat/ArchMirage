@@ -56,7 +56,7 @@ sfdisk "/dev/${drive}" < sda.sfdisk
 
 DMs=("Plasma" "Gnome" "i3")
 DMs_pacnames=("plasma-meta" "gnome" "i3-wm")
-choose_from_menu "Choose a display manager to install:" selected_DM "${DMs[@]}"
+choose_from_menu "Choose a display manager to install:" selected_DM DMs_pacnames "${DMs[@]}"
 echo "Selected display manager: $selected_DM"
 
 # Define partition names properly
