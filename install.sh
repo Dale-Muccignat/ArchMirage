@@ -1,6 +1,6 @@
 #!/bin/bash
 function choose_from_menu() {
-  local prompt="$1" outvar="$2"
+  local prompt="$1" pacnames="$2" outvar="$3"
   shift
   shift
   local options=("$@") cur=0 count=${#options[@]} index=0
@@ -30,7 +30,7 @@ function choose_from_menu() {
     echo -en "\e[${count}A" # go up to the beginning to re-render
   done
   # export the selection to the requested output variable
-  printf -v $outvar "${options[$cur]}"
+  printf -v $outvar "${pacnames[$cur]}"
 }
 
 # Update keyring, don't know why this is needed now
@@ -55,9 +55,9 @@ sfdisk "/dev/${drive}" < sda.sfdisk
 
 
 DMs=("Plasma" "Gnome" "i3")
+DMs_pacnames=("plasma-meta" "gnome" "i3-wm")
 choose_from_menu "Choose a display manager to install:" selected_DM "${DMs[@]}"
 echo "Selected display manager: $selected_DM"
-
 
 # Define partition names properly
 # sd/vd are named with just the number
