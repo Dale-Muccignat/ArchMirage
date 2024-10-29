@@ -3,6 +3,7 @@ function choose_from_menu() {
   local prompt="$1" pacnames="$2" outvar="$3"
   shift
   shift
+  shift
   local options=("$@") cur=0 count=${#options[@]} index=0
   local esc=$(echo -en "\e") # cache ESC as test doesn't allow esc codes
   printf "$prompt\n"
