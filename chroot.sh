@@ -18,16 +18,16 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 pacman -S --noconfirm grub efibootmgr sddm cinnamon i3-wm i3status i3blocks sudo networkmanager vim alacritty git base-devel intel-ucode
 
 # then install grub to a mount point:
-mkdir /mnt/boot
+mkdir /boot
 if [[ ${drive} = *"sd"* ]] || [[ ${drive} = *"vd"* ]]
 then
-    mount "/dev/${drive}1" /mnt/boot
+    mount "/dev/${drive}1" /boot
 elif [[ ${drive} = *"nv"* ]] || [[ ${drive} = *"mmc"* ]] || [[ ${drive} = *"loop"* ]]
 then
-    mount "/dev/${drive}p1" /mnt/boot
+    mount "/dev/${drive}p1" /boot
 fi
 
-grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 # then generate the GRUB config file
 grub-mkconfig -o /boot/grub/grub.cfg
 
